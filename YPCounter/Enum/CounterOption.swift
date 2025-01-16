@@ -16,14 +16,14 @@ enum CounterOption {
     
     var logText: String {
         switch self {
-        case .belowZero:
-            return "[\(getCurrentDateTime)]: попытка уменьшить значение счетчика ниже 0"
-        case .clear:
-            return "[\(getCurrentDateTime)]: значение сброшено"
-        case .subtract:
-            return "[\(getCurrentDateTime)]: значенние изменено на -1"
-        case .add:
-            return "[\(getCurrentDateTime)]: значение изменено на +1"
+            case .belowZero:
+                return "[\(getCurrentDateTime)]: попытка уменьшить значение счетчика ниже 0"
+            case .clear:
+                return "[\(getCurrentDateTime)]: значение сброшено"
+            case .subtract:
+                return "[\(getCurrentDateTime)]: значенние изменено на -1"
+            case .add:
+                return "[\(getCurrentDateTime)]: значение изменено на +1"
         }
     }
     

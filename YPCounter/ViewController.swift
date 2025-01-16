@@ -10,18 +10,17 @@ import UIKit
 
 
 
-
-class ViewController: UIViewController {
+@preconcurrency @MainActor
+final class ViewController: UIViewController {
     
+    @IBOutlet private weak var historyTextView: UITextView!
     
-    @IBOutlet weak var historyTextView: UITextView!
-    
-    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet private weak var counterLabel: UILabel!
     @CounterRule private var currentCounterAction
     
-    @IBOutlet weak var counterPlusButton: UIButton!
-    @IBOutlet weak var counterMinusButton: UIButton!
-    @IBOutlet weak var counterResetButton: UIButton!
+    @IBOutlet private weak var counterPlusButton: UIButton!
+    @IBOutlet private weak var counterMinusButton: UIButton!
+    @IBOutlet private weak var counterResetButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -59,7 +58,7 @@ private extension ViewController {
 // MARK: - Other handlers
 private extension ViewController {
     
-    private func updateHistorLog() {
+    func updateHistorLog() {
         UIView.animate(withDuration: 0.5) {
             if self.historyTextView.text != "История изменений" {
                 self.historyTextView.text?.append( "\n\(self.currentCounterAction.option.logText)" )
